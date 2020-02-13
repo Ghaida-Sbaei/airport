@@ -15,6 +15,16 @@ public class Application {
         schipol.aadPlane(plane3);
         System.out.println("The airport "+schipol.getName() +" has : ");
         schipol.printPlane();
+        System.out.println("===================================================================================================");
+        System.out.println("The status of planes : ");
+        plane1.isCurrentlyFlying();
+        plane2.isCurrentlyFlying();
+        plane3.isCurrentlyFlying();
+        System.out.println("===================================================================================================");
+        System.out.println("Overload the passenger : ");
+        plane1.load(43);
+        plane2.load(85);
+        plane3.load(110);
 
     }
 

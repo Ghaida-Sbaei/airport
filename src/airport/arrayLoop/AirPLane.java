@@ -5,9 +5,9 @@ public class AirPLane {
         private String planeId;
         private int maxNumbersPassenger;
         private int currentNumberPassenger;
-        private boolean currentlyFlying=true;
+        private boolean currentlyFlying;
         private double cruiseSpeed;
-
+        private int stillRoom;
 
         public AirPLane(String planeId, int maxNumbersPassenger, int currentNumberPassenger, boolean currentlyFlying) {
             this.planeId = planeId;
@@ -50,11 +50,12 @@ public class AirPLane {
 
         public int load(int currentNumberPassenger) {
             this.currentNumberPassenger = currentNumberPassenger;
-            if (currentNumberPassenger < maxNumbersPassenger) {
-                System.out.println("The Plane " + planeId + " charges " + getCurrentNumberPassenger() + " passengers ");
-            } else
-                System.out.println("The plane " + planeId + " dose not have enough seats because the max is " + getMaxNumbersPassenger());
-            return currentNumberPassenger;
+            if(currentlyFlying == false) {
+                if (currentNumberPassenger < maxNumbersPassenger) {
+                    System.out.println("The Plane " + planeId + " loads " + getCurrentNumberPassenger() + " passengers , and ready to take off");
+                } else
+                    System.out.println("The plane " + planeId + " dose not have enough seats because the max is " + getMaxNumbersPassenger());
+            }return currentNumberPassenger;
         }
 
         public void takeOff() {
@@ -81,11 +82,12 @@ public class AirPLane {
 
     public boolean isCurrentlyFlying() {
 
-        if (currentlyFlying == true) {
-            System.out.println("The plane flying");
+        if (currentlyFlying == false) {
+            stillRoom= maxNumbersPassenger - currentNumberPassenger;
+            System.out.println("The plane "+planeId + " requested is not flying , still room for " + stillRoom + " passenger");
         }
         else{
-            System.out.println("The plane has stoped");
+            System.out.println("The plane "+ planeId+" is flying ");
         }
         return currentlyFlying;
     }

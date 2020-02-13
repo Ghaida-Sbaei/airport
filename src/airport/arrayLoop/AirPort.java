@@ -33,7 +33,7 @@ public class AirPort {
     }
     public void printPlane(){
         for (AirPLane airPLane : airCrafts) {
-            System.out.println("\n * " + airPLane.getPlaneId() + " has current number of Passenger  " + airPLane.getCurrentNumberPassenger() + " @ max number is :  " + airPLane.getMaxNumbersPassenger() +" & Now is : " +airPLane.isCurrentlyFlying());
+            System.out.println( airPLane.getPlaneId() + " has current number of Passenger  " + airPLane.getCurrentNumberPassenger() + " & max number is :  " + airPLane.getMaxNumbersPassenger() );
         }
     }
 
